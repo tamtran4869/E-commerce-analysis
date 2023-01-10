@@ -107,113 +107,91 @@ Generally, there are 6 main analysis directions related to the e-commerce busine
 - User analysis to get users insight and behavior on the website.
 - Business growth analysis to get picture about the business "health".
 
-This project covers 20 questions and 1 final dashboard which included 6 main directions to make a story about the growth of Maven Fuzzy Factory. (You can find more tasks in the Udemy course)
+This project covers 21 questions and 1 final dashboard which included 6 main directions to make a story about the growth of Maven Fuzzy Factory. (You can find more tasks in the Udemy course)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Uploading the mavenfuzzyfactory database into the SQL server by <a href="https://github.com/othneildrew/Best-README-Template"> the SQL file</a>.
+Upload the mavenfuzzyfactory database into the SQL server by <a href="https://github.com/othneildrew/Best-README-Template"> the SQL file</a>.
 
-SQL query of each question are stored into 2 type of files in question folder: txt (for Python without comment) and sql (for easier reading with comment). 
+Running query in Python through SQL connections is more convenient for questions needed visualisation. Therefore, the project included a small Python code to follow questions more easy and consistent.
 
-Running query in Python through SQL connections is more convenient for questions needed visualisation. Therefore, the project included a small Python code to follow questions more easy.
+SQL query of each question are stored into 2 txt of files in question folder: txt (for running without comment) and sql (for reading with comment and can used directly in SQL). 
+
 
 ### Installation
-Clone the repo
+Clone the repo and go to the project folder
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
+   cd ecommerce_analysis
    ```
  ### Usage
-Clone the repo
+Use the connect.py file to run or read the query of each question by the command.
+
+The db parameter has structure 'database_name user password'.
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git  
+   python3 --question 8 --db 'mavenfuzzyfactory user password' --task 'run' #or 'read'
+
+   ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- ROADMAP -->
 ## Roadmap
+The detailed tasks
+### Traffic source analysis
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+The benefit is assess performance of each channels-platforms to adjust the bidding, decide to stop the channels.
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 0 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 1 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 2 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 3 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 4 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 5 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 6 </a>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Website performance analysis
 
+This analysis is to optimize, do A/B testing with landing page; check bounding rates , check conversion funnel to check whether the significant drop in each goals.
 
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 7 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 8 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 9 </a>
 
-<!-- CONTRIBUTING -->
-## Contributing
+### Time series analysis
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+By looking at this type of analysis, the business could understand correlations between time (moth, week, day, hours) and metrics (example in this case is the website session).
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 10 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 11 </a>
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### Product analysis
+The product analysis helps find the the problem with product with refund data, evaluate new product launching, compare products (funnel) and cross-sell.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 12 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 13 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 14 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 15 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 16 </a>
 
 
 
-<!-- CONTACT -->
-## Contact
+### User analysis
+To get more data about user bahavior (e.g. return, spending time, purchase) in the website, the user analysis need to be investigated.
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 17 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 18 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 19 </a>
+- <a href="https://github.com/othneildrew/Best-README-Template">Question 20 </a>
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+### Business growth
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+Beside ad-hoc tasks, the final report/dashboard bring the compete view for the team about the business state. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 

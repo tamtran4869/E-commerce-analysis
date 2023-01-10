@@ -78,65 +78,57 @@ I highly recommend the course for getting more advance in SQL.
 ## About Maven Fuzzy Factory
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
-It is an ecommerce company selling stuffies.
+It is an ecommerce company selling stuffies. See some events of the company during 3 years (Mar 2012 - Mar 2015) below:
 
-- Mar 2012: Launched the first product (Mr.Fuzzy)
-- Mar - November 2012: The team continue to optimised marketing and website performance by analysing data
-- Nomvember 2012 - December 2012: First reviewed the whole business growth after 8 months launching
-- 
+- Mar 2012: Launched the first product (Mr.Fuzzy).
+- Nov 2012: First reviewed the whole business growth after 8 months launching
+- Jan 2013: Launched another new product (Love Bear).
+- Sep 2013: Offered the option to add 2 products into cart.
+- Dec 2013: Launched another new product (Birthday bear).
+- Sep 2014: Fixed the problem with bears's arm.
+- Mar 2015: Second reviews after 3 years in market.
 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+During 3 years, the team was continuously analysied data to optimise marketing channels, platforms and website; understand insight users with product, behavior in website and refund data to make decisions.  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## About the project
 
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
+This is the schema of mavenfuzzyfactory database.
+ ![image](https://user-images.githubusercontent.com/114192113/211662502-b3a93ec0-a920-4e5b-b777-10a234cef385.png)
+
+Generally, there are 6 main analysis directions related to the e-commerce business:
+
+- Traffic source analysis to evaluate different marketing channel performance.
+- Website performance analysis to assess the website structure.
+- Time series analysis to discover the correlation between time vs traffic.
+- Product analysis to know more about the situation of the new launched product.
+- User analysis to get users insight and behavior on the website.
+- Business growth analysis to get picture about the business "health".
+
+This project covers 20 questions and 1 final dashboard which included 6 main directions to make a story about the growth of Maven Fuzzy Factory. (You can find more tasks in the Udemy course)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Uploading the mavenfuzzyfactory database into the SQL server by <a href="https://github.com/othneildrew/Best-README-Template"> the SQL file</a>.
 
-### Prerequisites
+SQL query of each question are stored into 2 type of files in question folder: txt (for Python without comment) and sql (for easier reading with comment). 
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Running query in Python through SQL connections is more convenient for questions needed visualisation. Therefore, the project included a small Python code to follow questions more easy.
 
 ### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
    ```
-3. Install NPM packages
+ ### Usage
+Clone the repo
    ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
+   git clone https://github.com/your_username_/Project-Name.git  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 

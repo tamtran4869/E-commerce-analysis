@@ -2,6 +2,8 @@
 It helps for optimise products list, prepare stocks and specify marketing stragegy or website design
 for each product/product lines.
 
+Note: There are some complex queries (e.g. Q14, Q15) which could be presented in form of cte, subquery or teamporary table depending on different purposes. This project prefers cte and subquery to combine all into 1 query which is more simple for running through Python.
+
 ## Question 12
 
 Pull monthly trends to date for number of sales, total revenue, and total margin generated
@@ -116,8 +118,6 @@ There are some steps to extract the data:
 
 ![image](https://user-images.githubusercontent.com/114192113/211910705-bd7105ea-183c-42d6-b091-7266d02d4d3f.png)
 
-These 5 select statements could be presented in form of cte, subquery or teamporary table depending on different purposes. This project prefers cte and subquery to combine all into 1 query which is more simple for running through Python.
-
 The full SQL query:
 
 
@@ -186,8 +186,93 @@ FROM 	(
 python3 connect.py --question 13 --db 'mavenfuzzyfactory user password'
 ```
 
-
 #### Comments
 It is clear the the percentage of sessions clicking to the next page after seeing the product listing page after launching the love bear product was higher than before. It could be explained by the various choice of products. So, adding more products helps imrpove CTR.
 
 While the percentage of click to the Mr Fuzzy product decreased after adding the love bear, it still accounted for major amounts. Assuming using same marketing stragegy, one possible reason is that the Mr Fuzzy could be siutable for a mass target audience than the Love Bear (e.g. only for couples). 
+
+## Question 15
+
+Analyse the conversion funnels for each product (from product page to thankyou page).
+
+_Received date: Apr 10, 2013_
+
+#### SQL query 
+There are some steps for this requests.
+1. Filter to keep only sessions from the product page (Mr Fuzzy or Love Bear, cart, shipping, billing and thank you page)
+![image](https://user-images.githubusercontent.com/114192113/211917122-51349451-950d-439a-afbf-f99912060483.png)
+
+2. Mark pageview url into 1 and 0 (or spread the pageview_url into 1 and 0)
+![image](https://user-images.githubusercontent.com/114192113/211917452-f170cb4b-5a79-4bb3-8093-572b2704472f.png)
+
+3. Flag the path of each session (e.g the session 63513 made to the thankyou page)
+
+![image](https://user-images.githubusercontent.com/114192113/211917917-cdbf8d78-3aa7-45f0-b994-dbb5ca2068d1.png)
+
+4. Group by product page, count session and compile CTR of each step.
+
+![image](https://user-images.githubusercontent.com/114192113/211918119-2fe09544-eba4-4da7-a932-a75948ebf1a3.png)
+
+The fill query:
+```
+-- Flag the path of each session
+WITH funnel_flag AS (
+SELECT
+	website_session_id,
+	product_page_seen,
+	MAX(cart_page) AS to_cart,
+	MAX(shipping_page) AS to_shipping,
+	MAX(billing_page) AS to_billing,
+	MAX(thankyou_page) AS to_thankyou
+FROM(	
+	SELECT -- Spread the pageview_url into 1 or 0
+		ssp.website_session_id,
+		ssp.product_page_seen,
+		CASE WHEN wp.pageview_url = '/cart' THEN 1 ELSE 0 END AS cart_page,
+		CASE WHEN wp.pageview_url = '/shipping' THEN 1 ELSE 0 END AS shipping_page,
+		CASE WHEN wp.pageview_url = '/billing-2' THEN 1 ELSE 0 END AS billing_page,
+		CASE WHEN wp.pageview_url = '/thank-you-for-your-order' THEN 1 ELSE 0 END AS thankyou_page
+	FROM ( SELECT -- Keep only sessions from products page
+			website_session_id,
+			website_pageview_id,
+			pageview_url AS product_page_seen
+		FROM website_pageviews
+		WHERE 
+			created_at < '2013-04-10'
+			AND created_at > '2013-01-06'
+			AND pageview_url IN ('/the-original-mr-fuzzy','/the-forever-love-bear')
+	) AS ssp
+	LEFT JOIN website_pageviews wp
+		ON wp.website_session_id = ssp.website_session_id
+		AND wp.website_pageview_id > ssp.website_pageview_id
+	) AS page_flag
+GROUP BY 1,2)
+
+-- Compute metrics
+SELECT *,
+	to_cart/sessions AS product_conv_rate,
+	to_shipping/to_cart AS cart_conv_rate,
+	to_billing/to_shipping AS shipping_conv_rate,
+	to_thankyou/to_billing AS billing_conv_rate
+FROM (
+	SELECT -- Count sessions
+		product_page_seen,
+		COUNT(DISTINCT website_session_id) AS sessions,
+		COUNT(DISTINCT CASE WHEN to_cart = 1 THEN website_session_id ELSE NULL END) AS to_cart,
+		COUNT(DISTINCT CASE WHEN to_shipping = 1 THEN website_session_id ELSE NULL END) AS to_shipping,
+		COUNT(DISTINCT CASE WHEN to_billing = 1 THEN website_session_id ELSE NULL END) AS to_billing,
+		COUNT(DISTINCT CASE WHEN to_thankyou = 1 THEN website_session_id ELSE NULL END) AS to_thankyou
+	FROM funnel_flag
+	GROUP BY 1
+	) AS funnel_sessions;
+```
+#### Command & Results
+
+```
+python3 connect.py --question 15 --db 'mavenfuzzyfactory user password'
+```
+![image](https://user-images.githubusercontent.com/114192113/211920466-93ce2c74-33d0-4c31-b2a3-bef40039bf2c.png)
+
+#### Comments
+
+There was not much difference between products. Only one significant differences was in the step from view product to add cart. The new product gaves higher CTR in this step. Assuming website be optimised, it showed that the new product was more sastified the demand of users than the Mr Fuzzy and it could be explained by the specification of the Love Bear focusing on couples in comparison to the general audiences of Mr Fuzzy.

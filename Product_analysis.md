@@ -76,12 +76,11 @@ python3 connect.py --question 13 --db 'mavenfuzzyfactory user password' -task 'r
 
 ![image](https://user-images.githubusercontent.com/114192113/211821591-f4d96e93-7d69-446a-9dbe-d887638e84e4.png)
 
-![image](https://user-images.githubusercontent.com/114192113/211822608-41fdd89c-5511-430c-bd78-f0c89e5ea31e.png)
+![image](https://user-images.githubusercontent.com/114192113/211846815-fbf76734-a1fa-4056-ae68-d4f411da8f8d.png)
 
 #### Comments
 After holiday, the orders reduced and fluctuated.
 Since the new product lanching in Jan 2013, the Mr.Fuzzy orders decreased and stayed stable while 
-the Love Bear orders were not stable. 
-However, the revenue per sessions continuously increased. 
+the Love Bear orders were not stable.
 
 Note: the full data for the last month had not been collected yet.

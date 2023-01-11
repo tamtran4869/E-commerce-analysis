@@ -221,6 +221,7 @@ Pull organic search, direct type in, and paid brand search sessions by month, an
 _Received date: Dec 23, 2012_
 
 #### SQL query 
+Using CASE WHEN to classify into different channels, then subquery to count sessions and group by time and channels.
 ```
 SELECT 
 	YEAR(created_at) AS year,

@@ -121,7 +121,7 @@ python3 connect.py --question 8 --db 'mavenfuzzyfactory user password' -task 'ru
 
 #### Comments
 
-The /lander-1, /mrfuzzy and /billing had low conversion rates. It could be the unfriendly designs, unattractive contents (e.g. product images are blurred, information is not catchy, price is high), the complicated payment systems. The team should dig more into these hypothesises. 
+The /lander-1, /mrfuzzy and /billing had low click-throught rates (CTR). It could be the unfriendly designs, unattractive contents (e.g. product images are blurred, information is not catchy, price is high), the complicated payment systems. The team should dig more into these hypothesises. 
 
 ## Question 9
 

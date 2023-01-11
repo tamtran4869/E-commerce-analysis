@@ -30,10 +30,10 @@ python3 connect.py --question 0 --db 'mavenfuzzyfactory user password' -task 'ru
 
 ![image](https://user-images.githubusercontent.com/114192113/211681955-d43c760b-78cf-448a-b3f7-96a080a81aaf.png)
 
-The data in this question is simple and can devire conclusion without chart.
+The data in this question is simple and can derive a conclusion without a chart.
 
 #### Comments
-The traffic from Google search with non-brand keywords are the main source compared to other sources. We should investigate more this to find whether it could get better.
+The traffic from Google searches with nonbrand keywords is the main source compared to other sources. We should investigate this more to find out whether it could get better.
 
 ## Question 1
 
@@ -65,14 +65,14 @@ python3 connect.py --question 1 --db 'mavenfuzzyfactory user password' -task 'ru
 ```
 ![image](https://user-images.githubusercontent.com/114192113/211685203-27a665cd-04ad-4443-85b7-e6578d6ff9dc.png)
 
-The data in this question is simple and can devire conclusion without chart.
+The data in this question is simple and can derive a conclusion without a chart.
 
 #### Comments
-It is clear that the conversion rate of Google search - nonbrand source does not meet the requirement.  
+It is clear that the conversion rate of Google search - nonbrand source did not meet the requirement.  
 
 ## Question 2
 
-Pull gsearch nonbrand trended session volume, by week, to check whether the bid changes (2012-04-15) have caused volume to drop.
+Pull gsearch nonbrand trended session volume by week to check whether the bid changes (2012-04-15) have caused the volume to drop.
 
 _Received date: May 12, 2012_
 
@@ -101,11 +101,11 @@ It is more easy to see the trend with a line graph.
 
 
 #### Comments
-The number of sessions go down significantly; hence, the source could be sensitive with bidding price.
+The number of sessions went down significantly; hence, the source could be sensitive to the bidding price.
 
 ## Question 3
 
-Continue with the gsearch-nonbrand, pull conversion rates from session to order, by device type.
+Continue with the gsearch-nonbrand, pull conversion rates from session to order by device type.
 
 _Received date: May 11, 2012_
 
@@ -137,10 +137,10 @@ python3 connect.py --question 3 --db 'mavenfuzzyfactory user password' -task 'ru
 ```
 ![image](https://user-images.githubusercontent.com/114192113/211688365-ad1f4756-48fa-4455-a0be-3448ab0c05d2.png)
 
-The data in this question is simple and can devire conclusion without chart.
+The data in this question is simple and can derive a conclusion without a chart.
 
 #### Comments
-Sessions from desktop device tend to generate higher CTR, so to imrpove CTR of the source, from insights from Q2 and Q3, the company could increase budget, bidding for delivering ad in desktop to achieve the expected CTR 4%.
+Sessions from desktop devices generated higher CTR, so to improve the conversion rate of the source, from insights from Q2 and Q3, the company could increase the budget, bidding for delivering ads on desktop to achieve the expected rate of 4%.
 
 ## Question 4
 
@@ -170,16 +170,16 @@ python3 connect.py --question 4 --db 'mavenfuzzyfactory user password' -task 'ru
 
 ![image](https://user-images.githubusercontent.com/114192113/211763464-5938c477-416c-4d64-bc3f-cc6f6c9d40e4.png)
 
-It is more easy to see the trend with a multiple line graph.
+It is easier to see the trend with a multiple-line graph.
 ![image](https://user-images.githubusercontent.com/114192113/211763593-79eda6f8-6f33-494b-a9a7-6f359cd6832b.png)
 
 #### Comment
-The chart shows a soar of desktop sessions as bidding up while the mobile sessions slightly decrease 
-(It could be bidding down for mobile device or there is an inverse relationship with desktop sessions).
+The chart has shown a soar of desktop sessions as bidding up while the mobile sessions slightly decreased. 
+(It could be bidding down for mobile devices, or there is an inverse relationship with desktop sessions).
 
 ## Question 5
-For futher investigate into the SEM channels, the company want to optimise the platforms as well.
-Compare 2 SEM platform Google & Bing by conversion rate slicing by device type.
+For further investigation into the SEM channels, the company also wants to optimise the platforms.
+Compare 2 SEM platforms Google & Bing, by conversion rate slicing by device type.
 
 _Received date: Dec 01, 2012_
 
@@ -210,13 +210,13 @@ python3 connect.py --question 5 --db 'mavenfuzzyfactory user password' -task 'ru
 ![image](https://user-images.githubusercontent.com/114192113/211767130-7811c5f9-4252-4829-b60d-9a06726b139d.png)
 
 #### Comments
-Only gsearch-nonbrand-desktop campaign gains the expected CTR. ALthough the bsearch-nonbrand-desktop does not get the CTR 4%, it has significant high CTR. 
-As features of SEM, the inventory may be not always available. If the inventory in Google is enough, the team could bid down the bsearch campaign. Otherwise, the team could optimize ad contents to improve CTR on bsearch-nonbrand-desktop.
+Only gsearch-nonbrand-desktop campaign gains the expected CTR. Although the bsearch-nonbrand-desktop did not get a conversion rate of 4%, it has a significantly high conversion rate. 
+As a feature of SEM, the inventory may not always be available. If the inventory in Google is enough, the team could bid down the bsearch campaign. Otherwise, the team could optimise ad content to improve the rate on bsearch-nonbrand-desktop.
 
-Ads in Google search in both devices have higher CTR compared to Bing search.
+Ads in Google search on both devices have higher CTR compared to Bing search.
 
 ## Question 6
-Pull organic search, direct type in, and paid brand search sessions by month, and show those sessionss a % of paid search nonbrand?
+Pull organic search, direct type-in, and paid brand search sessions by the month, and show those sessions a % of paid search nonbrand.
 
 _Received date: Dec 23, 2012_
 

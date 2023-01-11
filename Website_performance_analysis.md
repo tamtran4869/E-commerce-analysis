@@ -1,6 +1,6 @@
 # Website performance analysis
-At the same time the marketing team optimises marketing stragegy to increase sessions and conversion rate, 
-the website team conducts tests different page designs to reduce bounce rates and increase conversion rate as well.
+At the same time, the marketing team optimises marketing strategy to increase sessions and conversion rate, 
+the website team conducts tests on different page designs to reduce bounce rates and increase conversion rates as well.
 
 ## Question 7
 
@@ -31,12 +31,12 @@ python3 connect.py --question 7 --db 'mavenfuzzyfactory user password' -task 'ru
 ![image](https://user-images.githubusercontent.com/114192113/211772243-21b12f6b-68e8-49fa-b9b1-d2ca55379bbe.png)
 
 #### Comments
-The /home page has the highest sessions. The order seems to following the user buying journey. The sessions drops after each steps.
-It is important to know which step drops the most for optimization.
+The /home page had the highest number of sessions. The order seemed to follow the user's buying journey. The sessions drop after each step.
+It is important to know which step drops the most for optimisation.
 
 ## Question 8
 
-Start with landing page /lander-1 (After AB testing, /lander 1 generated lower bounce rates) and build the funnel all the way to our thank you page using data since August 5.
+Start with landing page /lander-1 (after AB testing, the /lander-1 showed lower bounce rates) and build the funnel to the thank you page using data since August 5.
 
 _Received date: Jun 09, 2012_
 
@@ -47,11 +47,11 @@ There are some steps to extract the required data.
 
  ![image](https://user-images.githubusercontent.com/114192113/211776597-2e857799-ad0e-4ca1-b03b-e7036e79665e.png)
 
-2. Group by session id and group by website_session_id and other columns keep the max value. The results shows which step of the funnel the website session went through 
-(e.g. session id 24305 made to the second step of funnel) >>> funnel_flag (using this as subquery)
+2. Group by session id and group by website_session_id and other columns keep the max value. The results show which step of the funnel the website session went through. 
+(e.g. session id 24305 made to the second step of the funnel) >>> funnel_flag (using this as a subquery).
 ![image](https://user-images.githubusercontent.com/114192113/211776782-6cd65c91-d2df-4c94-a78a-78202e77540c.png)
 
-3. The total session and percentages of each step are compiled 
+3. The entire session and percentages of each step are compiled. 
 
 ![image](https://user-images.githubusercontent.com/114192113/211776889-af0b6c28-8c82-4fb9-ab2b-b8f4b9966612.png)
 
@@ -109,8 +109,8 @@ FROM (
 	GROUP BY website_session_id
 	) AS funnel_flag;
 ```
-Note: In this case, we can not use COUNT and PARTITION BY because it returns distinct sessions of each step but can not show the tunnel path of specific session.
 
+Note: In this case, we can not use COUNT and PARTITION BY because it returns distinct sessions of each step but can not show the tunnel path of a specific session.
 
 #### Command & Results
 ```
@@ -121,7 +121,7 @@ python3 connect.py --question 8 --db 'mavenfuzzyfactory user password' -task 'ru
 
 #### Comments
 
-The /lander-1,/mrfuzzy and /billing have low CTR. It could be the unfriendly designs, unattractive contents (e.g product images are blurred, information is not catchy, price is high), the complicated payment systems. The team should dig more into these hypothesises. 
+The /lander-1, /mrfuzzy and /billing had low conversion rates. It could be the unfriendly designs, unattractive contents (e.g. product images are blurred, information is not catchy, price is high), the complicated payment systems. The team should dig more into these hypothesises. 
 
 ## Question 9
 
@@ -159,4 +159,4 @@ python3 connect.py --question 9 --db 'mavenfuzzyfactory user password' -task 'ru
 ![image](https://user-images.githubusercontent.com/114192113/211789640-9110017f-dc47-4428-bf27-6dc425f66caf.png)
 
 #### Comments
-It is clear that the new billing page has better performance.
+It is clear that the new billing page had better performance.

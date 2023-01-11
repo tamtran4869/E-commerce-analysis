@@ -5,6 +5,7 @@ the website team conducts tests different page designs to reduce bounce rates an
 ## Question 7
 
 Pull the most-viewed website pages, ranked by session volume.
+
 _Received date: Jun 09, 2012_
 
 #### SQL query 
@@ -36,6 +37,7 @@ It is important to know which step drops the most for optimization.
 ## Question 8
 
 Start with landing page /lander-1 (After AB testing, /lander 1 generated lower bounce rates) and build the funnel all the way to our thank you page using data since August 5.
+
 _Received date: Jun 09, 2012_
 
 #### SQL query 
@@ -46,7 +48,7 @@ There are some steps to extract the required data.
  ![image](https://user-images.githubusercontent.com/114192113/211776597-2e857799-ad0e-4ca1-b03b-e7036e79665e.png)
 
 2. Group by session id and group by website_session_id and other columns keep the max value. The results shows which step of the funnel the website session went through 
-(e.g. session id 24395 made to the second step of funnel) >>> funnel_flag (using this as subquery)
+(e.g. session id 24305 made to the second step of funnel) >>> funnel_flag (using this as subquery)
 ![image](https://user-images.githubusercontent.com/114192113/211776782-6cd65c91-d2df-4c94-a78a-78202e77540c.png)
 
 3. The total session and percentages of each step are compiled 
@@ -112,12 +114,49 @@ Note: In this case, we can not use COUNT and PARTITION BY because it returns dis
 
 #### Command & Results
 ```
-python3 connect.py --question 7 --db 'mavenfuzzyfactory user password' -task 'run'
+python3 connect.py --question 8 --db 'mavenfuzzyfactory user password' -task 'run'
 ```
 
+![Q8](https://user-images.githubusercontent.com/114192113/211786319-8702de42-41f2-4822-9bf0-a65afeaf0e41.png)
 
 #### Comments
-The /home page has the highest sessions. The order seems to following the user buying journey. The sessions drops after each steps.
-It is important to know which step drops the most for optimization.
 
+The /lander-1,/mrfuzzy and /billing have low CTR. It could be the unfriendly designs, unattractive contents (e.g product images are blurred, information is not catchy, price is high), the complicated payment systems. The team should dig more into these hypothesises. 
 
+## Question 9
+
+Get results from AB testing with /billing and /billing-2
+
+_Received date: Nov 10, 2012_
+
+#### SQL query 
+```
+SELECT
+	pageview_url,
+	COUNT(DISTINCT website_session_id) AS sessions,
+	COUNT(DISTINCT order_id) AS orders,
+	COUNT(DISTINCT order_id)/COUNT(DISTINCT website_session_id) AS conv_rate
+FROM 
+(
+SELECT 
+	wp.website_session_id,
+	wp.pageview_url, 
+	o.order_id
+FROM website_pageviews wp
+LEFT JOIN orders o
+	ON o.website_session_id = wp.website_session_id
+WHERE 
+	wp.website_pageview_id >= 53550 -- the first pageview id of /billing-2 (starting the test)
+	AND wp.created_at < '2012-11-10'
+	AND wp.pageview_url IN ('/billing','/billing-2')
+) AS billing_data
+GROUP BY pageview_url;
+```
+#### Command & Results
+```
+python3 connect.py --question 9 --db 'mavenfuzzyfactory user password' -task 'run'
+```
+![image](https://user-images.githubusercontent.com/114192113/211789640-9110017f-dc47-4428-bf27-6dc425f66caf.png)
+
+#### Comments
+It is clear that the new billing page has better performance.

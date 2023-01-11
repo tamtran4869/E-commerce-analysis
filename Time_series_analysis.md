@@ -82,4 +82,5 @@ A heatmap is a great choice to visual this type of data.
 #### Comments
 
 Sessions focus on Monday to Friday during office time (8-17), especially Wednesday with 2 peaks at 11 and 15. From this insight, the marketing team could set up time targeting reasonable and the support team could plan staff schedule to deal with high volumns.
+
 It is interested that the heatmap looks like behavior of B2B so the company could investigate more in B2B client.

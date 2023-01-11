@@ -1,5 +1,5 @@
 # Time series analysis
-Looking at performance of business by time to determine the pattern. It could use for seasonal analysis and user online behavior analysis. 
+Looking at the performance of the business over time to determine the pattern. It could use for seasonal analysis and user online behaviour analysis. 
 
 ## Question 10
 
@@ -30,16 +30,16 @@ python3 connect.py --question 10 --db 'mavenfuzzyfactory user password' -task 'r
 ![image](https://user-images.githubusercontent.com/114192113/211801859-a49b343e-768c-4695-8ffa-28e9caebea7a.png)
 
 #### Comments
-Overall, all metrics tend to increase during last 3 months, especially sessions in Nov. The reasons could be the rise of demands in holiday season and effective optimisation in marketing and website.
-Besides, the conversion chart shows a clear increase trend. Although, Dec is not the month with the hisghest sessions and orders
-but it is the highest conversion rate. It proves the good work of the team in optimization.
+Overall, all metrics increased during the last three months, especially sessions in Nov. The reasons could be the rise of demands in the holiday season and effective optimisation in marketing and website.
+Besides, the conversion chart showed a clear increasing trend. Although Dec was not the month with the highest sessions and orders,
+it was the highest conversion rate. It proved the excellent work of the team in optimisation.
 
-In my opinion, for further conclusions about seasonality (e.g month or week), the more data is needed.
+In my opinion, more data is needed for further conclusions about seasonality (e.g. month or week).
 
 ## Question 11
 
-Analyze the average website session volume, by hour of day and by day week and avoid the 
-holiday time period and use a date range of Sep 15 - Nov 15, 2012.
+Analyse the average website session volume by hours of the day and by day of the week and avoid the 
+holiday period and use a date range of Sep 15 - Nov 15, 2012.
 
 _Received date: Jan 05, 2013_
 
@@ -75,12 +75,12 @@ python3 connect.py --question 11 --db 'mavenfuzzyfactory user password' -task 'r
 ```
 ![image](https://user-images.githubusercontent.com/114192113/211802817-d869d2d3-63df-4b29-86cd-c1e901160195.png)
 
-A heatmap is a great choice to visual this type of data.
+A heatmap is a great choice to visualise this type of data.
 
 ![image](https://user-images.githubusercontent.com/114192113/211802855-04baf0d4-ca43-496f-bac2-acbb35bd5f48.png)
 
 #### Comments
 
-Sessions focus on Monday to Friday during office time (8-17), especially Wednesday with 2 peaks at 11 and 15. From this insight, the marketing team could set up time targeting reasonable and the support team could plan staff schedule to deal with high volumns.
+Sessions focus on Monday to Friday during office time (8-17), especially Wednesday, with two peaks at 11 and 15. From this insight, the marketing team could set up time targeting reasonably, and the support team could plan staff schedule to deal with high volumes.
 
-It is interested that the heatmap looks like behavior of B2B. It could be the desktop-device targeting of marketing campaigns and a huge demand from B2B clients. Following 2 hypothesises, the team could try to target mobile device on weekend and off hours; the company could investigate more the B2B sections.
+Interestingly, the heatmap looked like the behaviour of B2B. It could be the desktop-device targeting of marketing campaigns and massive demand from B2B clients. Following two hypotheses, the team could target mobile devices on weekends and off-hours; the company could investigate more the B2B sections.

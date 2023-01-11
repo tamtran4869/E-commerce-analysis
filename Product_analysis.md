@@ -275,4 +275,113 @@ python3 connect.py --question 15 --db 'mavenfuzzyfactory user password'
 
 #### Comments
 
-There was not much difference between products. Only one significant differences was in the step from view product to add cart. The new product gaves higher CTR in this step. Assuming website be optimised, it showed that the new product was more sastified the demand of users than the Mr Fuzzy and it could be explained by the specification of the Love Bear focusing on couples in comparison to the general audiences of Mr Fuzzy.
+There was not much difference between products. Only one significant differences was in the step from view product to add cart. The new product gaves higher CTR in this step. 
+
+Assuming website be optimised, it showed that the new product was more sastified the demand of users than the Mr Fuzzy and it could be explained by the specification of the Love Bear focusing on couples in comparison to the general audiences of Mr Fuzzy.
+
+## Question 16
+
+Compare the month before vs the month after offering a function to add 2nd product into the cart with CTR from the /cart page, Avg Products per Order, Average Order Value (AOV), and overall revenue per /cart page view.
+
+_Received date: Nov 22, 2013_
+
+#### SQL query 
+
+First, create 3 tables:
+1/ Filter data to get only sessions made to the /cart page (session_seeing_cart)
+
+![image](https://user-images.githubusercontent.com/114192113/211937495-82f24103-839f-4e85-ae1d-5604968991ab.png)
+
+2/ From table 1, get the next pageview id of the cart sessions (session_viewing_more)
+
+![image](https://user-images.githubusercontent.com/114192113/211938348-fe28d2fb-88c5-4793-866e-5001b03f9234.png)
+
+3/ From table 1, filter and keep only cart sessions placed order and get data related to the orders (session_place_order)
+
+![image](https://user-images.githubusercontent.com/114192113/211938562-8235819b-73db-4b59-818e-103fe7fc1bdb.png)
+
+Join 3 tables into a full table and mark which cart sessions place order, which click to next pages, then compile required metrics
+
+The full query:
+```
+-- Table 1
+WITH session_seeing_cart AS(
+SELECT 
+	CASE
+		WHEN created_at < '2013-09-25' THEN 'A. Before_Cross_Sell'
+		WHEN created_at >= '2013-09-25' THEN 'B. After_Cross_Sell'
+		ELSE NULL
+	END AS time_period,
+	website_session_id AS cart_session_id,
+	website_pageview_id AS cart_pageview_id
+FROM website_pageviews
+WHERE 
+	created_at BETWEEN '2013-08-25' AND '2013-10-25'
+	AND pageview_url = '/cart'),
+
+--Table 2	
+session_viewing_more AS(
+SELECT 
+	ssc.time_period,
+	ssc.cart_session_id,
+	MIN(wp.website_pageview_id) AS next_pageview_id
+FROM session_seeing_cart ssc
+LEFT JOIN website_pageviews wp
+	ON wp.website_session_id = ssc.cart_session_id
+	AND wp.website_pageview_id > ssc.cart_pageview_id
+GROUP BY 
+	1,2
+HAVING 
+	MIN(wp.website_pageview_id) IS NOT NULL),
+
+--Table 3
+session_place_order AS (
+SELECT
+	time_period,
+	cart_session_id,
+	order_id,
+	items_purchased,
+	price_usd
+FROM session_seeing_cart ssc
+INNER JOIN orders o
+	ON ssc.cart_session_id = o.website_session_id)
+
+-- Join 3 tables and compute metrics	
+SELECT
+	time_period,
+	COUNT(DISTINCT cart_session_id) AS cart_sessions,
+	SUM(click_next_page) AS clickthroughs,
+	SUM(click_next_page)/COUNT(DISTINCT cart_session_id) AS cart_ctr,
+	SUM(items_purchased)/SUM(place_order) AS product_per_order,
+	SUM(price_usd)/SUM(place_order) AS average_order_rev,
+	SUM(price_usd)/COUNT(DISTINCT cart_session_id) AS rev_per_cart_session
+FROM	(
+	SELECT  -- Mark sessions click to next page and sessions place order
+		ssc.time_period,
+		ssc.cart_session_id,
+		CASE WHEN svm.cart_session_id IS NULL THEN 0 ELSE 1 END AS click_next_page,
+		CASE WHEN spo.order_id IS NULL THEN 0 ELSE 1 END AS place_order,
+		spo.items_purchased,
+		spo.price_usd
+	FROM session_seeing_cart ssc
+	LEFT JOIN session_viewing_more svm
+		ON ssc.cart_session_id = svm.cart_session_id
+	LEFT JOIN session_place_order spo
+		ON ssc.cart_session_id = spo.cart_session_id
+	) AS full
+GROUP BY time_period;
+```
+#### Command & Results
+
+```
+python3 connect.py --question 16 --db 'mavenfuzzyfactory user password'
+```
+
+![image](https://user-images.githubusercontent.com/114192113/211939070-d1bf0098-40bd-4ec1-98f4-6e56354e19fc.png)
+
+
+#### Comments
+
+The data showed a slightly improvement in all metrics since adding new functions.
+
+

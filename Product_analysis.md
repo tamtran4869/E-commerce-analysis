@@ -379,9 +379,63 @@ python3 connect.py --question 16 --db 'mavenfuzzyfactory user password'
 
 ![image](https://user-images.githubusercontent.com/114192113/211939070-d1bf0098-40bd-4ec1-98f4-6e56354e19fc.png)
 
-
 #### Comments
 
 The data showed a slightly improvement in all metrics since adding new functions.
 
+## Question 17
+
+Please pull monthly product refund rates, by product, and confirm the quality issues fixed (Sep 2014).
+
+_Received date: Oct 15, 2014_
+
+#### SQL query 
+First step is to count order_id and order_id_refund by products, then compile the rates.
+
+```
+-- Compile refund rates
+SELECT
+	year,
+	month,
+	order_p1,
+	refund_p1/order_p1 AS refund_p1_rate,
+	order_p2,
+	refund_p2/order_p2 AS refund_p2_rate,
+	order_p3,
+	refund_p3/order_p3 AS refund_p3_rate,
+	order_p4,
+	refund_p4/order_p4 AS refund_p4_rate
+FROM (
+	SELECT -- Count orders
+		YEAR(oi.created_at) AS year,
+		MONTH(oi.created_at) AS month,
+		COUNT(DISTINCT CASE WHEN oi.product_id =1 THEN oi.order_item_id ELSE NULL END) AS order_p1,
+		COUNT(DISTINCT CASE WHEN oi.product_id =1 THEN oir.order_item_id ELSE NULL END) AS refund_p1,
+		COUNT(DISTINCT CASE WHEN oi.product_id =2 THEN oi.order_item_id ELSE NULL END) AS order_p2,
+		COUNT(DISTINCT CASE WHEN oi.product_id =2 THEN oir.order_item_id ELSE NULL END) AS refund_p2,
+		COUNT(DISTINCT CASE WHEN oi.product_id =3 THEN oi.order_item_id ELSE NULL END) AS order_p3,
+		COUNT(DISTINCT CASE WHEN oi.product_id =4 THEN oir.order_item_id ELSE NULL END) AS refund_p3,
+		COUNT(DISTINCT CASE WHEN oi.product_id =4 THEN oi.order_item_id ELSE NULL END) AS order_p4,
+		COUNT(DISTINCT CASE WHEN oi.product_id =4 THEN oir.order_item_id ELSE NULL END) AS refund_p4
+	FROM order_items oi
+	LEFT JOIN order_item_refunds oir
+		ON oi.order_item_id = oir.order_item_id
+	WHERE oi.created_at < '2014-10-15'
+	GROUP BY 1,2
+	) AS count;
+```
+#### Command & Results
+
+```
+python3 connect.py --question 17 --db 'mavenfuzzyfactory user password'
+```
+
+![image](https://user-images.githubusercontent.com/114192113/212083934-6fb61b92-187c-4155-9dc7-8033c75ce3b0.png)
+
+![image](https://user-images.githubusercontent.com/114192113/212083970-4817230e-93ce-4a52-944a-4df8ea91f937.png)
+
+#### Comments
+
+The second chart showed that the refund rate of product 1 - Mr Fuzzy reduced significant in the latest month after a soar in Aug and Sep 2019.
+Besides, some interesting observations were shown in the charts. Product 1 and product 2 had some struggle with refund in the beginning. While product 1 needed around 20 months to stablise the quality of product, the product 2 spent around 7 months to do this. The number of orders did not have positive relationship with the refund rates.
 

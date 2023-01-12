@@ -436,6 +436,7 @@ python3 connect.py --question 17 --db 'mavenfuzzyfactory user password'
 
 #### Comments
 
-The second chart showed that the refund rate of product 1 - Mr Fuzzy reduced significant in the latest month after a soar in Aug and Sep 2019.
+The second chart showed that the refund rate of product 1 - Mr Fuzzy reduced significant in the latest month after a soar in Aug and Sep 2014.
+
 Besides, some interesting observations were shown in the charts. Product 1 and product 2 had some struggle with refund in the beginning. While product 1 needed around 20 months to stablise the quality of product, the product 2 spent around 7 months to do this. The number of orders did not have positive relationship with the refund rates.
 

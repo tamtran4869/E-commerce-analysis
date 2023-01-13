@@ -1,0 +1,41 @@
+WITH session_new_repeat AS (
+SELECT
+	ns.user_id,
+	ns.website_session_id AS new_session_id,
+	ns.created_at AS new_session_time,
+	ws.website_session_id AS repeat_session_id,
+	ws.created_at AS repeat_session_time
+FROM (
+	SELECT
+		user_id,
+		website_session_id,
+		created_at
+	FROM website_sessions
+	WHERE 
+		created_at < '2014-11-03'
+		AND created_at >= '2014-01-01'
+		AND is_repeat_session = 0
+	) AS ns
+LEFT JOIN website_sessions ws 
+	ON ws.user_id = ns.user_id
+	AND ws.is_repeat_session = 1
+	AND ws.website_session_id > ns.website_session_id
+	AND ws.created_at < '2014-11-03'
+	AND ws.created_at >= '2014-01-01'
+HAVING ws.website_session_id IS NOT NULL)
+
+
+SELECT 
+	AVG(DATEDIFF(next_session_time,new_session_time)) AS avg_days,
+	MIN(DATEDIFF(next_session_time,new_session_time)) AS min_days,
+	MAX(DATEDIFF(next_session_time,new_session_time)) AS max_days
+FROM 	(
+	SELECT 
+		user_id,
+		new_session_id,
+		new_session_time,
+		MIN(repeat_session_id) AS next_session_id,
+		MIN(repeat_session_time) AS next_session_time
+	FROM session_new_repeat
+	GROUP BY user_id
+	) AS session_new_next;

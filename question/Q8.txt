@@ -1,0 +1,50 @@
+WITH page_flag AS (
+SELECT
+	ws.website_session_id,
+	wp.pageview_url,
+	CASE WHEN wp.pageview_url = '/products' THEN 1 ELSE 0 END AS products_page,
+	CASE WHEN wp.pageview_url = '/the-original-mr-fuzzy' THEN 1 ELSE 0 END AS mrfuzzy_page,
+	CASE WHEN wp.pageview_url = '/cart' THEN 1 ELSE 0 END AS cart_page,
+	CASE WHEN wp.pageview_url = '/shipping' THEN 1 ELSE 0 END AS shipping_page,
+	CASE WHEN wp.pageview_url = '/billing' THEN 1 ELSE 0 END AS billing_page,
+	CASE WHEN wp.pageview_url = '/thank-you-for-your-order' THEN 1 ELSE 0 END AS thankyou_page
+FROM website_sessions ws
+LEFT JOIN website_pageviews wp
+	ON ws.website_session_id = wp.website_session_id
+WHERE 
+	ws.utm_source = 'gsearch' AND
+	ws.utm_campaign = 'nonbrand' AND
+	ws.created_at > '2012-08-05' AND
+	ws.created_at < '2012-09-05' 
+ORDER BY
+	ws.website_session_id,
+	ws.created_at)
+
+SELECT 
+	COUNT(website_session_id) AS total_session,
+	SUM(to_product) AS to_product,
+	SUM(to_product)/COUNT(website_session_id) AS landing_ctr,
+	SUM(to_mrfuzzy) AS to_mrfuzzy,
+	SUM(to_mrfuzzy)/SUM(to_product) AS product_ctr,
+	SUM(to_cart) AS to_cart,
+	SUM(to_cart)/SUM(to_mrfuzzy) AS mrfuzzy_ctr,
+	SUM(to_shipping) AS to_shipping,
+	SUM(to_shipping)/SUM(to_cart) AS cart_ctr,
+	SUM(to_billing) AS to_billing,
+	SUM(to_billing)/SUM(to_shipping) AS shipping_ctr,
+	SUM(to_thankyou) AS to_thankyou,
+	SUM(to_thankyou)/SUM(to_billing) AS billing_ctr
+
+FROM (
+	SELECT 
+		website_session_id,
+		MAX(products_page) AS to_product,
+		MAX(mrfuzzy_page) AS to_mrfuzzy,
+		MAX(cart_page) AS to_cart,
+		MAX(shipping_page) AS to_shipping,
+		MAX(billing_page) AS to_billing,
+		MAX(thankyou_page) AS to_thankyou
+	FROM page_flag
+	GROUP BY website_session_id
+	) AS funnel_flag;
+	

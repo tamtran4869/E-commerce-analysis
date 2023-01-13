@@ -1,0 +1,30 @@
+SELECT
+	year,
+	month,
+	order_p1,
+	refund_p1/order_p1 AS refund_p1_rate,
+	order_p2,
+	refund_p2/order_p2 AS refund_p2_rate,
+	order_p3,
+	refund_p3/order_p3 AS refund_p3_rate,
+	order_p4,
+	refund_p4/order_p4 AS refund_p4_rate
+FROM (
+	SELECT 
+		YEAR(oi.created_at) AS year,
+		MONTH(oi.created_at) AS month,
+		COUNT(DISTINCT CASE WHEN oi.product_id =1 THEN oi.order_item_id ELSE NULL END) AS order_p1,
+		COUNT(DISTINCT CASE WHEN oi.product_id =1 THEN oir.order_item_id ELSE NULL END) AS refund_p1,
+		COUNT(DISTINCT CASE WHEN oi.product_id =2 THEN oi.order_item_id ELSE NULL END) AS order_p2,
+		COUNT(DISTINCT CASE WHEN oi.product_id =2 THEN oir.order_item_id ELSE NULL END) AS refund_p2,
+		COUNT(DISTINCT CASE WHEN oi.product_id =3 THEN oi.order_item_id ELSE NULL END) AS order_p3,
+		COUNT(DISTINCT CASE WHEN oi.product_id =4 THEN oir.order_item_id ELSE NULL END) AS refund_p3,
+		COUNT(DISTINCT CASE WHEN oi.product_id =4 THEN oi.order_item_id ELSE NULL END) AS order_p4,
+		COUNT(DISTINCT CASE WHEN oi.product_id =4 THEN oir.order_item_id ELSE NULL END) AS refund_p4
+	FROM order_items oi
+	LEFT JOIN order_item_refunds oir
+		ON oi.order_item_id = oir.order_item_id
+	WHERE oi.created_at < '2014-10-15'
+	GROUP BY 1,2
+	) AS count
+;

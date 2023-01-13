@@ -1,0 +1,64 @@
+WITH session_seeing_cart AS(
+SELECT 
+	CASE
+		WHEN created_at < '2013-09-25' THEN 'A. Before_Cross_Sell'
+		WHEN created_at >= '2013-09-25' THEN 'B. After_Cross_Sell'
+		ELSE NULL
+	END AS time_period,
+	website_session_id AS cart_session_id,
+	website_pageview_id AS cart_pageview_id
+FROM website_pageviews
+WHERE 
+	created_at BETWEEN '2013-08-25' AND '2013-10-25'
+	AND pageview_url = '/cart'),
+	
+session_viewing_more AS(
+SELECT 
+	ssc.time_period,
+	ssc.cart_session_id,
+	MIN(wp.website_pageview_id) AS next_pageview_id
+FROM session_seeing_cart ssc
+LEFT JOIN website_pageviews wp
+	ON wp.website_session_id = ssc.cart_session_id
+	AND wp.website_pageview_id > ssc.cart_pageview_id
+GROUP BY 
+	1,2
+HAVING 
+	MIN(wp.website_pageview_id) IS NOT NULL),
+
+session_place_order AS (
+SELECT
+	time_period,
+	cart_session_id,
+	order_id,
+	items_purchased,
+	price_usd
+FROM session_seeing_cart ssc
+INNER JOIN orders o
+	ON ssc.cart_session_id = o.website_session_id)
+
+SELECT
+	time_period,
+	COUNT(DISTINCT cart_session_id) AS cart_sessions,
+	SUM(click_next_page) AS clickthroughs,
+	SUM(click_next_page)/COUNT(DISTINCT cart_session_id) AS cart_ctr,
+	SUM(items_purchased)/SUM(place_order) AS product_per_order,
+	SUM(price_usd)/SUM(place_order) AS average_order_rev,
+	SUM(price_usd)/COUNT(DISTINCT cart_session_id) AS rev_per_cart_session
+FROM	(
+	SELECT 
+		ssc.time_period,
+		ssc.cart_session_id,
+		CASE WHEN svm.cart_session_id IS NULL THEN 0 ELSE 1 END AS click_next_page,
+		CASE WHEN spo.order_id IS NULL THEN 0 ELSE 1 END AS place_order,
+		spo.items_purchased,
+		spo.price_usd
+	FROM session_seeing_cart ssc
+	LEFT JOIN session_viewing_more svm
+		ON ssc.cart_session_id = svm.cart_session_id
+	LEFT JOIN session_place_order spo
+		ON ssc.cart_session_id = spo.cart_session_id
+	) AS full
+GROUP BY time_period;
+
+

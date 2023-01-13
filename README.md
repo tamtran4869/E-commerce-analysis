@@ -21,7 +21,7 @@
   <p align="center">
     The project is guided by Maven Analytics with the advanced SQL course in Udemy.
     
-However, after extracting the required data, there are some tasks; getting ideas, insights or conclusions from data frames is hard. Therefore, to make it clear and practice more skills, besides SQL as the course, I used Python to extract data and create visuals and commented insights getting from it.
+However, after extracting the required data, there are some tasks; getting ideas, insights or conclusions from tabular data is challenging. Therefore, to make it clear and practice more skills besides SQL as the course, Python (e.g. Matplotlib, seaborn, plotly, SQLconnection, pandas, numpy) was used to extract data and create visuals for deriving Valuable insights.
    
    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
@@ -69,10 +69,9 @@ However, after extracting the required data, there are some tasks; getting ideas
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-The purpose of the Udemy course is to deal with real-life, ad-hoc requirements of stakeholders to extract and analyse data from the Maven Fuzzy Factory database - a new online retailer. The course included a series of ad-hoc tasks from marketing and website management teams and full reports tasks from the CEO.
+The purpose of the Udemy course is to deal with real-life requirements of stakeholders to extract and analyse data from the Maven Fuzzy Factory database - a new online retailer. The course included a series of ad-hoc tasks from marketing and website management teams and full reports tasks from the CEO (which will be in another work with Tableau).
 
-You can find the detail <a href="https://www.udemy.com/course/advanced-sql-mysql-for-analytics-business-intelligence/">here.</a>
-I highly recommend the course for getting more advance in SQL.
+The detail of the course: <a href="https://www.udemy.com/course/advanced-sql-mysql-for-analytics-business-intelligence/"> Advanced SQL-MySQL for analytics business intelligence.</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -97,10 +96,11 @@ During three years, the team continuously analysed data to optimise marketing ch
 ## About the project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
+
 This is the schema of mavenfuzzyfactory database.
  ![image](https://user-images.githubusercontent.com/114192113/211662502-b3a93ec0-a920-4e5b-b777-10a234cef385.png)
 
-Generally, there are six main analysis directions related to the e-commerce business:
+Generally, there are five main analysis directions related to the e-commerce business:
 
 - Traffic source analysis to evaluate different marketing channel performance.
 - Website performance analysis to assess the website structure.
@@ -176,7 +176,7 @@ The product analysis helps find the problem with the product with refund data, e
 The user analysis needs to be investigated to understand user behaviour (e.g. return, spending time, purchase) to plan a custom strategy (e.g. marketing, promotion, recommendations, new products) for each segment. The word 'user' means different in different scenarios. It could be consumers with purchasing data, audiences (in advertising) with behaviour and insights data (e.g. click, share, interests), users with session data on the website, students with information and results data, etc.
 
 
-In this work, it analysed users' behaviour on the websites.
+This work analysed users' behaviour on the websites.
 
 <a href="https://github.com/othneildrew/Best-README-Template">Go to the section > </a>
 

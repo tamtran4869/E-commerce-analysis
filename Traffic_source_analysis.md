@@ -25,7 +25,7 @@ ORDER BY
 ```
 #### Command & Results
 ```
-python3 connect.py --question 0 --db 'mavenfuzzyfactory user password' -task 'run'
+python3 connect.py --question 0 --db 'mavenfuzzyfactory user password'
 ```
 
 ![image](https://user-images.githubusercontent.com/114192113/211681955-d43c760b-78cf-448a-b3f7-96a080a81aaf.png)
@@ -61,7 +61,7 @@ SELECT *, orders/sessions as conv_rate FROM cte;
 ```
 #### Command & Results
 ```
-python3 connect.py --question 1 --db 'mavenfuzzyfactory user password' -task 'run'
+python3 connect.py --question 1 --db 'mavenfuzzyfactory user password'
 ```
 ![image](https://user-images.githubusercontent.com/114192113/211685203-27a665cd-04ad-4443-85b7-e6578d6ff9dc.png)
 
@@ -91,7 +91,7 @@ GROUP BY
 ```
 #### Command & Results
 ```
-python3 connect.py --question 2 --db 'mavenfuzzyfactory user password' -task 'run'
+python3 connect.py --question 2 --db 'mavenfuzzyfactory user password'
 ```
 
 ![image](https://user-images.githubusercontent.com/114192113/211686782-4ef44611-f374-44df-9481-494965e3f755.png )
@@ -133,7 +133,7 @@ FROM cte;
 ```
 #### Command & Results
 ```
-python3 connect.py --question 3 --db 'mavenfuzzyfactory user password' -task 'run'
+python3 connect.py --question 3 --db 'mavenfuzzyfactory user password'
 ```
 ![image](https://user-images.githubusercontent.com/114192113/211688365-ad1f4756-48fa-4455-a0be-3448ab0c05d2.png)
 
@@ -165,7 +165,7 @@ GROUP BY
 ```
 #### Command & Results
 ```
-python3 connect.py --question 4 --db 'mavenfuzzyfactory user password' -task 'run'
+python3 connect.py --question 4 --db 'mavenfuzzyfactory user password'
 ```
 
 ![image](https://user-images.githubusercontent.com/114192113/211763464-5938c477-416c-4d64-bc3f-cc6f6c9d40e4.png)
@@ -204,7 +204,7 @@ GROUP BY
 ```
 #### Command & Results
 ```
-python3 connect.py --question 5 --db 'mavenfuzzyfactory user password' -task 'run'
+python3 connect.py --question 5 --db 'mavenfuzzyfactory user password'
 ```
 
 ![image](https://user-images.githubusercontent.com/114192113/211767130-7811c5f9-4252-4829-b60d-9a06726b139d.png)
@@ -245,7 +245,7 @@ GROUP BY 1,2,4;
 ```
 #### Command & Results
 ```
-python3 connect.py --question 6 --db 'mavenfuzzyfactory user password' -task 'run'
+python3 connect.py --question 6 --db 'mavenfuzzyfactory user password'
 ```
 ![image](https://user-images.githubusercontent.com/114192113/212328190-18d80925-8f79-4729-a617-99862f654dfc.png)
 

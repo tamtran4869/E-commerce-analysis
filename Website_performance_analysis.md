@@ -23,7 +23,7 @@ ORDER BY
 ```
 #### Command & Results
 ```
-python3 connect.py --question 7 --db 'mavenfuzzyfactory user password' -task 'run'
+python3 connect.py --question 7 --db 'mavenfuzzyfactory user password'
 ```
 
 ![image](https://user-images.githubusercontent.com/114192113/211772184-5e521eb1-e661-4442-93f1-d2e127be91a4.png)
@@ -114,7 +114,7 @@ Note: In this case, we can not use COUNT and PARTITION BY because it returns dis
 
 #### Command & Results
 ```
-python3 connect.py --question 8 --db 'mavenfuzzyfactory user password' -task 'run'
+python3 connect.py --question 8 --db 'mavenfuzzyfactory user password'
 ```
 
 ![Q8](https://user-images.githubusercontent.com/114192113/211786319-8702de42-41f2-4822-9bf0-a65afeaf0e41.png)
@@ -154,7 +154,7 @@ GROUP BY pageview_url;
 ```
 #### Command & Results
 ```
-python3 connect.py --question 9 --db 'mavenfuzzyfactory user password' -task 'run'
+python3 connect.py --question 9 --db 'mavenfuzzyfactory user password'
 ```
 ![image](https://user-images.githubusercontent.com/114192113/211789640-9110017f-dc47-4428-bf27-6dc425f66caf.png)
 

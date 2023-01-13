@@ -12,18 +12,24 @@ from plotly import graph_objects as go
 class get_df_visual():
     def __init__(self,records):
         self.records=records
-
+        
+    # Each function is a question.
     def Q0(self):
         df = pd.DataFrame(self.records, columns=['utm_source','utm_campaign','http_referer','sessions'])
+        print(df)
+        
         return df
 
     def Q1(self):
         df = pd.DataFrame(self.records, columns=['sessions','orders','conv_rate'])
+        print(df)
+        
         return df
     
     def Q2(self):
         #Get dataframe
         df = pd.DataFrame(self.records, columns=['week_start_date','sessions'])
+        print(df)
 
         #Visualise data
         x=df["week_start_date"]
@@ -54,11 +60,14 @@ class get_df_visual():
     
     def Q3(self):
         df = pd.DataFrame(self.records, columns=['device_type','sessions','orders','conv_rate'])
+        print(df)
+        
         return df
 
     def Q4(self):
         #Get data
         df = pd.DataFrame(self.records, columns=['week_start_date','desktop_sessions','mobile_orders'])
+        print(df)
 
         #Visualise data
         x= df["week_start_date"]
@@ -99,6 +108,8 @@ class get_df_visual():
     
     def Q5(self):
         df = pd.DataFrame(self.records, columns=['device_type','utm_source','sessions','orders','conv_rate'])
+        print(df)
+        
         return df
 
     def Q6(self):
@@ -107,6 +118,7 @@ class get_df_visual():
         df=df.pivot_table(index=['month'],columns='channel_group',values='sessions')
         df.columns = [''.join(map(str, c)).strip('_') for c in df]
         df = df.reset_index(level=0)
+        print(df)
 
         # Visualise dataframe
         x= df['month']
@@ -161,6 +173,7 @@ class get_df_visual():
     def Q7(self):
         # Get data
         df = pd.DataFrame(self.records, columns=['pageview_url','sessions'])
+        print(df)
 
         # Visualise data
         x=df["sessions"]
@@ -186,6 +199,7 @@ class get_df_visual():
 
     def Q8(self):
         df = pd.DataFrame(self.records, columns=['total_session','product_sessions','landing_ctr','mrfuzzy_sessions','product_ctr','cart_session','mrfuzzy_ctr','shipping_sessions','cart_ctr','billing_sessions','shipping_ctr','thankyou_sessions','billing_ctr'])
+        print(df)
 
         # Visualise funnel chart with plotly
         stages = ["/lander-1", "/products", "/mrfuzzy", "/cart", "/shipping",'/billing','/thank-you']
@@ -204,12 +218,14 @@ class get_df_visual():
     def Q9(self):
         df = pd.DataFrame(self.records, columns=['pageview_url','sessions','orders',"conv_rate"])
         print(df)
+        
         return df
 
     def Q10(self):
         #Get data
         df = pd.DataFrame(self.records, columns=['month','sessions','orders','conv_rate'])
         print(df)
+        
         #Visualise data
         x=df['month']
         y1=df['sessions']

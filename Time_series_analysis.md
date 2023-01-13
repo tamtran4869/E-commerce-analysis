@@ -23,7 +23,7 @@ GROUP BY 1;
 ```
 #### Command & Results
 ```
-python3 connect.py --question 10 --db 'mavenfuzzyfactory user password' -task 'run'
+python3 connect.py --question 10 --db 'mavenfuzzyfactory user password'
 ```
 ![image](https://user-images.githubusercontent.com/114192113/211798519-08c4e915-9027-472f-a7ba-d1c2c8a6e698.png)
 
@@ -71,7 +71,7 @@ ORDER BY hour;
 ```
 #### Command & Results
 ```
-python3 connect.py --question 11 --db 'mavenfuzzyfactory user password' -task 'run'
+python3 connect.py --question 11 --db 'mavenfuzzyfactory user password'
 ```
 ![image](https://user-images.githubusercontent.com/114192113/211802817-d869d2d3-63df-4b29-86cd-c1e901160195.png)
 

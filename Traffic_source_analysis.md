@@ -216,7 +216,7 @@ As a feature of SEM, the inventory may not always be available. If the inventory
 Ads in gsearch on both devices have higher CTR compared to bsearch.
 
 ## Question 6
-Pull organic search, direct type-in, and paid brand search sessions by the month, and show those sessions a % of paid search nonbrand.
+Pull organic search, direct type-in, and paid brand search sessions by the month.
 
 _Received date: Dec 23, 2012_
 
@@ -247,6 +247,10 @@ GROUP BY 1,2,4;
 ```
 python3 connect.py --question 6 --db 'mavenfuzzyfactory user password' -task 'run'
 ```
+![image](https://user-images.githubusercontent.com/114192113/212328190-18d80925-8f79-4729-a617-99862f654dfc.png)
 
+![Q6](https://user-images.githubusercontent.com/114192113/212328233-adbb263d-1fa0-4547-8359-1a467167b273.png)
 
 #### Comments
+
+The gearch-paid-nonbrand was the main source to gain traffic to the website. The others were the same with modest amounts.

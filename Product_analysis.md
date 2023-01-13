@@ -1,8 +1,8 @@
 # Product analysis
-It helps for optimise products list, prepare stocks and specify marketing stragegy or website design
-for each product/product lines.
+It helps to optimise products lines, prepare stocks and specify marketing strategy or website design
+for each product.
 
-Note: There are some complex queries (e.g. Q14, Q15) which could be presented in form of cte, subquery or teamporary table depending on different purposes. This project prefers cte and subquery to combine all into 1 query which is more simple for running through Python.
+Note: There are some complex queries (e.g. Q14, Q15) which could be presented in the form of cte, subquery or temporary table, depending on different purposes. This project prefers cte and subquery to combine all into 1 query, which is more straightforward for running through Python.
 
 ## Question 12
 
@@ -38,10 +38,10 @@ python3 connect.py --question 12 --db 'mavenfuzzyfactory user password'
 
 #### Comments
 
-The Mr.Fuzzy product had a steadily inrease in orders which brought rises of revenue and profit as well.
-The orders increased supprisingly in Nov and was back to normal speed in Dec.
+The Mr Fuzzy product had a steady increase in orders which brought rises in revenue and profit as well.
+The orders increased surprisingly in November and were back to the normal speed in December.
 
-Note: the company used this data as baseline to test new product launching.
+Note: the company used this data as a baseline to test new product launching.
 
 ## Question 13
 
@@ -81,13 +81,13 @@ python3 connect.py --question 13 --db 'mavenfuzzyfactory user password'
 ![image](https://user-images.githubusercontent.com/114192113/211849875-00c2c27d-ff02-426d-96b1-113a5a5c5ffe.png)
 
 #### Comments
-After holiday, the orders reduced and fluctuated.
-Since the new product lanching in Jan 2013, the Mr.Fuzzy orders decreased and stayed stable while 
-the Love Bear orders were not stable. 
+After the holiday, the orders reduced and fluctuated.
+Since the new product launched in Jan 2013, the Mr Fuzzy orders decreased and stayed stable, while 
+the Love Bear orders were unstable. 
 
-However, the conversion rates kept going up. It could be the general improvements of business (e.g. due to improve in marketing, website) or the good performance of new product. 
+However, the conversion rates kept going up. It could be the general improvements of business (e.g. due to advances in marketing, website) or the excellent performance of the new product. 
 
-Note: the full data for the last month had not been collected yet.
+Note: the complete data for the last month had yet to be collected.
 
 ## Question 14
 
@@ -98,11 +98,11 @@ _Received date: Apr 06, 2013_
 
 #### SQL query 
 There are some steps to extract the data:
-1. Get sessions viewing the /product page and classify it into before and after product 2 launching. 
+1. Get sessions viewing the /product page and classify it: before and after product 2 launching. 
 
 ![image](https://user-images.githubusercontent.com/114192113/211909711-6ab085f8-d943-474e-bb46-779b6c4d1c57.png)
 
-2. Get the next pageview id of these sessions
+2. Get the next pageview id of these sessions.
 
 ![image](https://user-images.githubusercontent.com/114192113/211909854-fa02dc51-9f18-4093-b733-8444428dac1e.png)
 
@@ -110,7 +110,7 @@ There are some steps to extract the data:
 
 ![image](https://user-images.githubusercontent.com/114192113/211909995-b9ff76f6-8eb6-4893-8b99-217d5172d9f7.png)
 
-4. Compute the count sessions group by the time period
+4. Compute the count sessions grouping by the time period
 
 ![image](https://user-images.githubusercontent.com/114192113/211912426-f9ab7aa9-fff9-4d46-9e4e-d3165ab2e413.png)
 
@@ -187,9 +187,9 @@ python3 connect.py --question 13 --db 'mavenfuzzyfactory user password'
 ```
 
 #### Comments
-It is clear the the percentage of sessions clicking to the next page after seeing the product listing page after launching the love bear product was higher than before. It could be explained by the various choice of products. So, adding more products helps imrpove CTR.
+The percentage of sessions clicking to the next page after seeing the product listing page after launching the love bear product was higher than before. The various choice of products could explain it. So, adding more products helps improve CTR.
 
-While the percentage of click to the Mr Fuzzy product decreased after adding the love bear, it still accounted for major amounts. Assuming using same marketing stragegy, one possible reason is that the Mr Fuzzy could be siutable for a mass target audience than the Love Bear (e.g. only for couples). 
+While the percentage of clicks to the Mr Fuzzy product decreased after adding the love bear, it still accounted for significant amounts. Assuming using the same marketing strategy, one possible reason is that the Mr Fuzzy could be more suitable for a mass target audience than the Love Bear (e.g. only for couples). 
 
 ## Question 15
 
@@ -198,18 +198,18 @@ Analyse the conversion funnels for each product (from product page to thankyou p
 _Received date: Apr 10, 2013_
 
 #### SQL query 
-There are some steps for this requests.
-1. Filter to keep only sessions from the product page (Mr Fuzzy or Love Bear, cart, shipping, billing and thank you page)
+There are some steps for this request.
+1. Filter to keep only sessions from the product page (Mr Fuzzy or Love Bear, cart, shipping, billing, and thank you page)
 ![image](https://user-images.githubusercontent.com/114192113/211917122-51349451-950d-439a-afbf-f99912060483.png)
 
-2. Mark pageview url into 1 and 0 (or spread the pageview_url into 1 and 0)
+2. Mark the pageview url into 1 and 0 (or spread the pageview_url into 1 and 0)
 ![image](https://user-images.githubusercontent.com/114192113/211917452-f170cb4b-5a79-4bb3-8093-572b2704472f.png)
 
-3. Flag the path of each session (e.g the session 63513 made to the thankyou page)
+3. Flag the path of each session (e.g the session 63513 went to the thankyou page)
 
 ![image](https://user-images.githubusercontent.com/114192113/211917917-cdbf8d78-3aa7-45f0-b994-dbb5ca2068d1.png)
 
-4. Group by product page, count session and compile CTR of each step.
+4. Group by product pages, count session and compile CTR of each step.
 
 ![image](https://user-images.githubusercontent.com/114192113/211918119-2fe09544-eba4-4da7-a932-a75948ebf1a3.png)
 
@@ -275,9 +275,9 @@ python3 connect.py --question 15 --db 'mavenfuzzyfactory user password'
 
 #### Comments
 
-There was not much difference between products. Only one significant differences was in the step from view product to add cart. The new product gaves higher CTR in this step. 
+There was not much difference between the products. Only one significant difference was in the step from view product to add cart. The new product gives a higher CTR in this step. 
 
-Assuming website be optimised, it showed that the new product was more sastified the demand of users than the Mr Fuzzy and it could be explained by the specification of the Love Bear focusing on couples in comparison to the general audiences of Mr Fuzzy.
+Assuming the website designs were the same, it showed that the new product more satisfied the demand of users than Mr Fuzzy, and it could be explained by the specification of the Love Bear focusing on couples compared to the general audiences of Mr Fuzzy.
 
 ## Question 16
 
@@ -288,19 +288,19 @@ _Received date: Nov 22, 2013_
 #### SQL query 
 
 First, create 3 tables:
-1/ Filter data to get only sessions made to the /cart page (session_seeing_cart)
+1. Filter data to get only sessions made to the /cart page (session_seeing_cart).
 
 ![image](https://user-images.githubusercontent.com/114192113/211937495-82f24103-839f-4e85-ae1d-5604968991ab.png)
 
-2/ From table 1, get the next pageview id of the cart sessions (session_viewing_more)
+2. From table 1, get the next pageview id of the cart sessions (session_viewing_more).
 
 ![image](https://user-images.githubusercontent.com/114192113/211938348-fe28d2fb-88c5-4793-866e-5001b03f9234.png)
 
-3/ From table 1, filter and keep only cart sessions placed order and get data related to the orders (session_place_order)
+3. From table 1, filter and keep only cart sessions placed order and get data related to the orders (session_place_order).
 
 ![image](https://user-images.githubusercontent.com/114192113/211938562-8235819b-73db-4b59-818e-103fe7fc1bdb.png)
 
-Join 3 tables into a full table and mark which cart sessions place order, which click to next pages, then compile required metrics
+Join 3 tables into a full table and mark which cart sessions place order, which click to next pages, then compile required metrics.
 
 The full query:
 ```
@@ -381,7 +381,7 @@ python3 connect.py --question 16 --db 'mavenfuzzyfactory user password'
 
 #### Comments
 
-The data showed a slightly improvement in all metrics since adding new functions.
+The data showed a slight improvement in all metrics since adding new functions.
 
 ## Question 17
 
@@ -390,7 +390,7 @@ Please pull monthly product refund rates, by product, and confirm the quality is
 _Received date: Oct 15, 2014_
 
 #### SQL query 
-First step is to count order_id and order_id_refund by products, then compile the rates.
+The first step is to count order_id and order_id_refund by products, then compile the rates.
 
 ```
 -- Compile refund rates
@@ -436,7 +436,6 @@ python3 connect.py --question 17 --db 'mavenfuzzyfactory user password'
 
 #### Comments
 
-The second chart showed that the refund rate of product 1 - Mr Fuzzy reduced significant in the latest month after a soar in Aug and Sep 2014.
+The second chart showed that the refund rate of product 1 - Mr Fuzzy reduced significantly in the latest month after a soar in Aug and Sep 2014. The problem was fixed.
 
-Besides, some interesting observations were shown in the charts. Product 1 and product 2 had some struggle with refund in the beginning. While product 1 needed around 20 months to stablise the quality of product, the product 2 spent around 7 months to do this. The number of orders did not have positive relationship with the refund rates.
-
+Besides, some interesting observations were shown in the charts. Product 1 and product 2 had some struggles with refunds in the beginning. While product 1 needed around 20 months to stabilise the quality of the product, product 2 spent around 7 months to do this. The number of orders did not have a positive relationship with the refund rates.

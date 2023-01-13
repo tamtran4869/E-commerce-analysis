@@ -131,6 +131,9 @@ Clone the repo and go to the project directory.
 Use the connect.py file to run the query of each question by the command.
 
 The db parameter has structure 'database_name user password'.
+
+The question argument is valid from 0 to 21 equivalent to 22 questions.
+
    ```sh
    python3 --question 8 --db 'mavenfuzzyfactory user password'
 
@@ -170,14 +173,12 @@ The product analysis helps find the problem with the product with refund data, e
 
 
 ### User analysis
-The user analysis needs to be investigated to understand user behaviour (e.g. return, spending time, purchase) to plan a custom strategy for each segment. The word 'user' means different in different scenarios. It could be consumers with purchasing data, audiences (in advertising) with behaviour and insights data (e.g. click, share, interests), users with session data on the website, students with information and results data, etc.
+The user analysis needs to be investigated to understand user behaviour (e.g. return, spending time, purchase) to plan a custom strategy (e.g. marketing, promotion, recommendations, new products) for each segment. The word 'user' means different in different scenarios. It could be consumers with purchasing data, audiences (in advertising) with behaviour and insights data (e.g. click, share, interests), users with session data on the website, students with information and results data, etc.
 
 
 In this work, it analysed users' behaviour on the websites.
 
 <a href="https://github.com/othneildrew/Best-README-Template">Go to the section > </a>
-
-
 
 
 

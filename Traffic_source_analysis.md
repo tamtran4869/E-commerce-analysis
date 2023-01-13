@@ -33,7 +33,7 @@ python3 connect.py --question 0 --db 'mavenfuzzyfactory user password' -task 'ru
 The data in this question is simple and can derive a conclusion without a chart.
 
 #### Comments
-The traffic from Google searches with nonbrand keywords is the main source compared to other sources. We should investigate this more to find out whether it could get better.
+The traffic from gsearch with nonbrand keywords is the main source compared to other sources. We should investigate this more to find out whether it could get better.
 
 ## Question 1
 
@@ -68,7 +68,7 @@ python3 connect.py --question 1 --db 'mavenfuzzyfactory user password' -task 'ru
 The data in this question is simple and can derive a conclusion without a chart.
 
 #### Comments
-It is clear that the conversion rate of Google search - nonbrand source did not meet the requirement.  
+It is clear that the conversion rate of gsearch - nonbrand source did not meet the requirement.  
 
 ## Question 2
 
@@ -178,8 +178,8 @@ The chart has shown a soar of desktop sessions as bidding up while the mobile se
 (It could be bidding down for mobile devices, or there is an inverse relationship with desktop sessions).
 
 ## Question 5
-For further investigation into the SEM channels, the company also wants to optimise the platforms.
-Compare 2 SEM platforms Google & Bing, by conversion rate slicing by device type.
+For further investigation into the search engine marketing (SEM) channels, the company also wants to optimise the platforms.
+Compare 2 SEM platforms gsearch and bsearch by conversion rate slicing by device type.
 
 _Received date: Dec 01, 2012_
 
@@ -213,7 +213,7 @@ python3 connect.py --question 5 --db 'mavenfuzzyfactory user password' -task 'ru
 Only gsearch-nonbrand-desktop campaign gains the expected CTR. Although the bsearch-nonbrand-desktop did not get a conversion rate of 4%, it has a significantly high conversion rate. 
 As a feature of SEM, the inventory may not always be available. If the inventory in Google is enough, the team could bid down the bsearch campaign. Otherwise, the team could optimise ad content to improve the rate on bsearch-nonbrand-desktop.
 
-Ads in Google search on both devices have higher CTR compared to Bing search.
+Ads in gsearch on both devices have higher CTR compared to bsearch.
 
 ## Question 6
 Pull organic search, direct type-in, and paid brand search sessions by the month, and show those sessions a % of paid search nonbrand.

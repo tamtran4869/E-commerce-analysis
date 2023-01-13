@@ -21,7 +21,7 @@
   <p align="center">
     The project is guided by Maven Analytics with the advanced SQL course in Udemy.
     
-However, after extracting the required data, there are some tasks; getting ideas, insights or conclusions from data frames is hard. Therefore, to make it clear and practice more skills, besides SQL as the course, I used Python to extract data and create a visualization, and Tableau for building final dashboards.
+However, after extracting the required data, there are some tasks; getting ideas, insights or conclusions from data frames is hard. Therefore, to make it clear and practice more skills, besides SQL as the course, I used Python to extract data and create visuals and commented insights getting from it.
    
    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
@@ -107,7 +107,6 @@ Generally, there are six main analysis directions related to the e-commerce busi
 - Time series analysis to discover the correlation between time and traffic.
 - Product analysis to know more about the situation of the newly launched product.
 - User analysis to get users' insight and behaviour on the website.
-- Business growth analysis to get the picture of the business's "health".
 
 This project covers 21 questions and one final dashboard, which includes these main directions to make a story about the growth of Maven Fuzzy Factory. (You can find more tasks in the Udemy course).
 
@@ -120,10 +119,10 @@ Upload the mavenfuzzyfactory database into the SQL server by <a href="https://gi
 
 Running queries in Python through SQL connections is more convenient for questions needing visualisation. Therefore, the project included a small Python code to follow questions more easily and consistently.
 
-SQL queries of each question are stored in a txt file (for running without comment).
+SQL queries of each question were stored in a txt file (for running without comment).
 
 ### Installation
-Clone the repo and go to the project folder
+Clone the repo and go to the project directory.
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
    cd ecommerce_analysis
@@ -140,58 +139,45 @@ The db parameter has structure 'database_name user password'.
 
 <!-- ROADMAP -->
 ## Roadmap
-The detailed tasks
+
+This work covered SQL for getting data (not maintain the database) with complex using SELECT, COUNT, DISTINCT, CASE WHEN, JOIN, multiple window functions, subqueries. View SQL queries in the <a href="https://github.com/othneildrew/Best-README-Template"> question </a>  folder.
+
+Besides, various type of charts were used to fit with the data from simple (e.g. pie, line, bar) to complex (e.g. heatmap, funnel, combined charts). View the python code for visualisation in <a href="https://github.com/othneildrew/Best-README-Template"> get_df_visual.py </a> file and the charts in the <a href="https://github.com/othneildrew/Best-README-Template"> fig </a> folder.
+
 ### Traffic source analysis
 
-The benefit is to assess the performance of each channels-platforms to adjust the bidding and decide to stop the channels.
+The benefit is to assess the performance of each channels, platforms to adjust the bidding, decide to focus on which channels, which platforms and define the targeting (e.g. device type)
 
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 0 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 1 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 2 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 3 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 4 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 5 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 6 </a>
+<a href="https://github.com/othneildrew/Best-README-Template">Go to the section > </a>
 
 ### Website performance analysis
 
-This analysis is to optimize, do A/B testing with the landing page, check bounding rates, and examine the conversion funnel to check whether the a significant drop in each goal.
+This analysis is to optimize, do A/B testing with the landing page, check bounce rates, and examine the conversion funnel to check whether the a significant drop in each goal.
 
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 7 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 8 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 9 </a>
+<a href="https://github.com/othneildrew/Best-README-Template">Go to the section > </a>
 
 ### Time series analysis
 
-By looking at this type of analysis, the business could understand correlations between time (month, week, day, hours) and metrics (e.g. in this case, the website session).
+By looking at this type of analysis, the business could understand correlations between time (month, week, day, hours) and metrics (e.g. in this case, the website session) that help the marketing team to set up ads, the operation team to prepare stocks and staffs, plan sale and events; the website team to make the website accessible even with massive traffic. 
 
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 10 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 11 </a>
+<a href="https://github.com/othneildrew/Best-README-Template">Go to the section > </a>
 
 ### Product analysis
 The product analysis helps find the problem with the product with refund data, evaluate new product launching, compare products (the funnel) and cross-sell.
 
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 12 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 13 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 14 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 15 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 16 </a>
+<a href="https://github.com/othneildrew/Best-README-Template">Go to the section > </a>
 
 
 
 ### User analysis
-The user analysis needs to be investigated to understand user behaviour (e.g. return, spending time, purchase) on the website.
+The user analysis needs to be investigated to understand user behaviour (e.g. return, spending time, purchase) to plan a custom strategy for each segment. The word 'user' means different in different scenarios. It could be consumers with purchasing data, audiences (in advertising) with behaviour and insights data (e.g. click, share, interests), users with session data on the website, students with information and results data, etc.
 
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 17 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 18 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 19 </a>
-- <a href="https://github.com/othneildrew/Best-README-Template">Question 20 </a>
 
-### Business growth
+In this work, it analysed users' behaviour on the websites.
 
-Beside ad-hoc tasks, the final report/dashboard bring the compete view for the team about the business state. 
+<a href="https://github.com/othneildrew/Best-README-Template">Go to the section </a>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 

@@ -16,7 +16,7 @@
   <p align="center">
     The project is guided by Maven Analytics with the advanced SQL course in Udemy.
     
-However, after extracting the required data, there are some tasks; getting ideas, insights or conclusions from tabular data is challenging. Therefore, to make it clear and practice more skills besides SQL as the course, Python (e.g. Matplotlib, seaborn, plotly, SQLconnection, pandas, numpy) was used to extract data and create visuals for deriving Valuable insights.
+However, after extracting the required data, there are some tasks; getting ideas, insights or conclusions from tabular data is challenging. Therefore, to make it clear and practice more skills besides SQL as the course, Python (e.g. Matplotlib, seaborn, plotly, SQLconnection, pandas, numpy) was used to extract data and create visuals for deriving valuable insights.
     
    <a href="#about-the-course"><strong>Explore the docs »</strong></a>
     <br />

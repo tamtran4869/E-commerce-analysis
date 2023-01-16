@@ -8,7 +8,7 @@ Take a look at 2012’s monthly and weekly volume patterns by session volume and
 _Received date: Jan 02, 2013_
 
 #### SQL query 
-```
+```sql
 SELECT 
 	MONTH(ws.created_at) AS month,
 	COUNT(DISTINCT ws.website_session_id) AS sessions,
@@ -44,7 +44,7 @@ holiday period and use a date range of Sep 15 - Nov 15, 2012.
 _Received date: Jan 05, 2013_
 
 #### SQL query 
-```
+```sql
 SELECT
 	hour,
 	AVG(CASE WHEN weekday = 0 THEN sessions ELSE NULL END) AS mon,

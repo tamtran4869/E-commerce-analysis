@@ -66,7 +66,7 @@ However, after extracting the required data, there are some tasks; getting ideas
 
 The purpose of the Udemy course is to deal with real-life requirements of stakeholders to extract and analyse data from the Maven Fuzzy Factory database - a new online retailer. The course included a series of ad-hoc tasks from marketing and website management teams and full reports tasks from the CEO (which will be in another work with Tableau).
 
-The detail of the course: <a href="https://www.udemy.com/course/advanced-sql-mysql-for-analytics-business-intelligence/">Advanced SQL-MySQL for analytics business intelligence..</a>
+The detail of the course: <a href="https://www.udemy.com/course/advanced-sql-mysql-for-analytics-business-intelligence/">Advanced SQL-MySQL for analytics business intelligence.</a>
 
 <p align="right">(<a href="#ecommerce_analysis">back to top</a>)</p>
 

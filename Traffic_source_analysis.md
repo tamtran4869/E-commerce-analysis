@@ -6,7 +6,7 @@ Get data to understand where the bulk of the website sessions are coming from, t
 _Received date: Apr 12, 2012_
 
 #### SQL query 
-```
+```sql
 SELECT
 	utm_source, 
 	utm_campaign, 
@@ -43,7 +43,7 @@ _Received date: Apr 14, 2012_
 
 #### SQL query 
 Using window functions
-```
+```sql
 WITH cte AS 
 (	
 	SELECT 
@@ -77,7 +77,7 @@ Pull gsearch nonbrand trended session volume by week to check whether the bid ch
 _Received date: May 12, 2012_
 
 #### SQL query 
-```
+```sql
 SELECT 
 	MIN(DATE(created_at)) AS week_start_date, 
 	COUNT(DISTINCT website_session_id) AS sessions 
@@ -110,8 +110,8 @@ Continue with the gsearch-nonbrand, pull conversion rates from session to order 
 _Received date: May 11, 2012_
 
 #### SQL query 
-Using window functions
-```
+Using CTE
+```sql
 WITH cte AS 
 (
 	SELECT 
@@ -149,7 +149,7 @@ Pull weekly trends for both desktop and mobile of gsearch nonbrand keywords to s
 _Received date: Jun 09, 2012
 
 #### SQL query 
-```
+```sql
 SELECT 
 	MIN(DATE(created_at)) AS week_start_date, 
 	COUNT(DISTINCT CASE WHEN device_type = 'desktop' THEN website_session_id 			ELSE NULL END) AS desktop_sessions, 
@@ -184,7 +184,7 @@ Compare 2 SEM platforms gsearch and bsearch by conversion rate slicing by device
 _Received date: Dec 01, 2012_
 
 #### SQL query 
-```
+```sql
 SELECT 
 	ws.device_type,
 	ws.utm_source,

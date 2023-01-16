@@ -12,7 +12,7 @@ for the business.
 _Received date: Jan 04, 2013_
 
 #### SQL query 
-```
+```sql
 SELECT
 	YEAR(created_at) AS year,
 	MONTH(created_at) AS month,
@@ -52,7 +52,7 @@ breakdown of sales by product, all for the time period since April 1, 2012 to co
 _Received date: Apr 05, 2013_
 
 #### SQL query 
-```
+```sql
 SELECT
 	YEAR(ws.created_at) AS year,
 	MONTH(ws.created_at) AS month,
@@ -120,8 +120,7 @@ There are some steps to extract the data:
 
 The full SQL query:
 
-
-```
+```sql
 -- Create cte to get next pageview id from sessions viewing /products.
 WITH next_pageview_id AS (
 SELECT 
@@ -214,7 +213,7 @@ There are some steps for this request.
 ![image](https://user-images.githubusercontent.com/114192113/211918119-2fe09544-eba4-4da7-a932-a75948ebf1a3.png)
 
 The fill query:
-```
+```sql
 -- Flag the path of each session
 WITH funnel_flag AS (
 SELECT
@@ -303,7 +302,7 @@ First, create 3 tables:
 Join 3 tables into a full table and mark which cart sessions place order, which click to next pages, then compile required metrics.
 
 The full query:
-```
+```sql
 -- Table 1
 WITH session_seeing_cart AS(
 SELECT 
@@ -392,7 +391,7 @@ _Received date: Oct 15, 2014_
 #### SQL query 
 The first step is to count order_id and order_id_refund by products, then compile the rates.
 
-```
+```sql
 -- Compile refund rates
 SELECT
 	year,

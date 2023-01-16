@@ -31,7 +31,7 @@ NULL in this table means there is no repeat session corresponding to the user_id
 ![image](https://user-images.githubusercontent.com/114192113/212206678-5a713cfe-bec2-483f-af9a-8f6f8c0663fd.png)
 
 The full query:
-```
+```sql
 -- Get users with new and repeat session id
 WITH session_new_repeat AS (
 SELECT
@@ -108,7 +108,7 @@ compared to table step 2).
 
 The full query:
 
-```
+```sql
 -- Get users with repeat sessions
 WITH session_new_repeat AS (
 SELECT
@@ -167,8 +167,7 @@ Comparing new and repeat sessions by channel from 2014
 _Received date: Nov 05, 2014_
 
 #### SQL query 
-
-```
+```sql
 SELECT
 	CASE
 		WHEN utm_source IS NULL AND http_referer IS NOT NULL THEN 'organic_search'
@@ -208,7 +207,7 @@ _Received date: Nov 08, 2014_
 
 #### SQL query 
 
-```
+```sql
 SELECT
 	ws.is_repeat_session,
 	COUNT(DISTINCT ws.website_session_id) AS sessions,

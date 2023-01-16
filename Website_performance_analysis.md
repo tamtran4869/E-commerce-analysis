@@ -9,7 +9,7 @@ Pull the most-viewed website pages, ranked by session volume.
 _Received date: Jun 09, 2012_
 
 #### SQL query 
-```
+```sql
 SELECT 
 	pageview_url, 
 	COUNT(DISTINCT website_session_id) AS sessions 
@@ -56,7 +56,7 @@ There are some steps to extract the required data.
 ![image](https://user-images.githubusercontent.com/114192113/211776889-af0b6c28-8c82-4fb9-ab2b-b8f4b9966612.png)
 
 The full query:
-```
+```sql
 -- Create page_flag table
 WITH page_flag AS (
 SELECT
@@ -130,7 +130,7 @@ Get results from AB testing with /billing and /billing-2
 _Received date: Nov 10, 2012_
 
 #### SQL query 
-```
+```sql
 SELECT
 	pageview_url,
 	COUNT(DISTINCT website_session_id) AS sessions,
